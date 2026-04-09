@@ -57,7 +57,7 @@ A **production-grade Retail Store backend** built using Spring Boot, featuring *
   - Service  
   - Security  
 - Integration Tests  
-- System Test Plan  
+- System Tests 
 
 ---
 

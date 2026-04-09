@@ -1,0 +1,250 @@
+2026-04-06 13:59:06 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Starting RetailStoreApplication using Java 21.0.7 with PID 29428 (C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store\target\classes started by Keerthi.Samayam in C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store)
+2026-04-06 13:59:06 [restartedMain] INFO  c.retailstore.RetailStoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-06 13:59:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-06 13:59:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 26 ms.
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRepository already defined in the application context, skipping the registration of a jobRepository
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobExplorer already defined in the application context, skipping the registration of a jobExplorer
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobLauncher already defined in the application context, skipping the registration of a jobLauncher
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistry already defined in the application context, skipping the registration of a jobRegistry
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistryBeanPostProcessor already defined in the application context, skipping the registration of a jobRegistryBeanPostProcessor
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobOperator already defined in the application context, skipping the registration of a jobOperator
+2026-04-06 13:59:09 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 29 ms.
+2026-04-06 13:59:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06 13:59:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 555 ms. Found 12 JPA repository interfaces.
+2026-04-06 13:59:12 [restartedMain] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-04-06 13:59:14 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-06 13:59:14 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-06 13:59:14 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-04-06 13:59:14 [restartedMain] INFO  o.a.c.c.C.[.[.[/retail-store] - Initializing Spring embedded WebApplicationContext
+2026-04-06 13:59:14 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8136 ms
+2026-04-06 13:59:16 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06 13:59:16 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-06 13:59:16 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-06 13:59:17 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06 13:59:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-06 13:59:18 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4dc45bb8
+2026-04-06 13:59:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-06 13:59:20 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06 13:59:21 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 13:59:22 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-06 13:59:22 [restartedMain] INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: MYSQL
+2026-04-06 13:59:23 [restartedMain] INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2026-04-06 13:59:23 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 13:59:23 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 13:59:23 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 13:59:23 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 13:59:23 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-06 13:59:24 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06 13:59:26 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-06 13:59:26 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/retail-store'
+2026-04-06 13:59:26 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Started RetailStoreApplication in 23.822 seconds (process running for 25.976)
+2026-04-06 14:00:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775464200020, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 14:00:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 14:00:08 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 7s658ms
+2026-04-06 14:00:08 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775464200020, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 7s752ms
+2026-04-06 14:02:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775464320002, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 14:02:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 14:02:04 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 4s371ms
+2026-04-06 14:02:04 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775464320002, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 4s458ms
+2026-04-06 14:04:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775464440001, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 14:04:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 14:04:04 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 4s228ms
+2026-04-06 14:04:04 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775464440001, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 4s324ms
+2026-04-06 14:06:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775464560008, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 14:06:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 14:06:04 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 4s54ms
+2026-04-06 14:06:04 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775464560008, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 4s129ms
+2026-04-06 14:08:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775464680007, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 14:08:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 14:08:04 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 4s625ms
+2026-04-06 14:08:04 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775464680007, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 4s701ms
+2026-04-06 14:10:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775464800009, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 14:10:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 14:10:04 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 4s610ms
+2026-04-06 14:10:04 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775464800009, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 4s726ms
+2026-04-06 14:12:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775464920006, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 14:12:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 14:12:04 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 4s205ms
+2026-04-06 14:12:04 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775464920006, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 4s292ms
+2026-04-06 14:12:15 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 14:12:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-06 14:12:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-06 19:22:45 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Starting RetailStoreApplication using Java 21.0.7 with PID 17176 (C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store\target\classes started by Keerthi.Samayam in C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store)
+2026-04-06 19:22:45 [restartedMain] INFO  c.retailstore.RetailStoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-06 19:22:45 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-06 19:22:45 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 10 ms.
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRepository already defined in the application context, skipping the registration of a jobRepository
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobExplorer already defined in the application context, skipping the registration of a jobExplorer
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobLauncher already defined in the application context, skipping the registration of a jobLauncher
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistry already defined in the application context, skipping the registration of a jobRegistry
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistryBeanPostProcessor already defined in the application context, skipping the registration of a jobRegistryBeanPostProcessor
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobOperator already defined in the application context, skipping the registration of a jobOperator
+2026-04-06 19:22:47 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 11 ms.
+2026-04-06 19:22:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06 19:22:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 291 ms. Found 12 JPA repository interfaces.
+2026-04-06 19:22:49 [restartedMain] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-04-06 19:22:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-06 19:22:50 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-06 19:22:50 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-04-06 19:22:50 [restartedMain] INFO  o.a.c.c.C.[.[.[/retail-store] - Initializing Spring embedded WebApplicationContext
+2026-04-06 19:22:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4799 ms
+2026-04-06 19:22:50 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06 19:22:51 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-06 19:22:51 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-06 19:22:51 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06 19:22:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-06 19:22:52 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@544aab37
+2026-04-06 19:22:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-06 19:22:54 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06 19:22:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 19:22:56 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-06 19:22:56 [restartedMain] INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: MYSQL
+2026-04-06 19:22:56 [restartedMain] INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2026-04-06 19:22:56 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 19:22:56 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 19:22:56 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 19:22:56 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 19:22:56 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-06 19:22:57 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06 19:22:59 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-06 19:22:59 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/retail-store'
+2026-04-06 19:22:59 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Started RetailStoreApplication in 16.597 seconds (process running for 17.901)
+2026-04-06 19:24:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775483640030, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 19:24:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 19:24:06 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 5s876ms
+2026-04-06 19:24:06 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775483640030, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 5s973ms
+2026-04-06 19:24:06 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=productUploadJob]] launched with the following parameters: [{'runId_productUploadJob':'{value=1775483646517, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/products-upload.csv, type=class java.lang.String, identifying=true}'}]
+2026-04-06 19:24:06 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [productUploadStep]
+2026-04-06 19:24:12 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [productUploadStep] executed in 5s839ms
+2026-04-06 19:24:12 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=productUploadJob]] completed with the following parameters: [{'runId_productUploadJob':'{value=1775483646517, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/products-upload.csv, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 5s898ms
+2026-04-06 19:24:48 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 19:24:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-06 19:24:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-06 23:03:36 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Starting RetailStoreApplication using Java 21.0.7 with PID 9248 (C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store\target\classes started by Keerthi.Samayam in C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store)
+2026-04-06 23:03:36 [restartedMain] INFO  c.retailstore.RetailStoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-06 23:03:37 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-06 23:03:37 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 17 ms.
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRepository already defined in the application context, skipping the registration of a jobRepository
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobExplorer already defined in the application context, skipping the registration of a jobExplorer
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobLauncher already defined in the application context, skipping the registration of a jobLauncher
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistry already defined in the application context, skipping the registration of a jobRegistry
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistryBeanPostProcessor already defined in the application context, skipping the registration of a jobRegistryBeanPostProcessor
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobOperator already defined in the application context, skipping the registration of a jobOperator
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 14 ms.
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRepository already defined in the application context, skipping the registration of a jobRepository
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobExplorer already defined in the application context, skipping the registration of a jobExplorer
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobLauncher already defined in the application context, skipping the registration of a jobLauncher
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistry already defined in the application context, skipping the registration of a jobRegistry
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistryBeanPostProcessor already defined in the application context, skipping the registration of a jobRegistryBeanPostProcessor
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobOperator already defined in the application context, skipping the registration of a jobOperator
+2026-04-06 23:03:39 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 12 ms.
+2026-04-06 23:03:40 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06 23:03:40 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 508 ms. Found 12 JPA repository interfaces.
+2026-04-06 23:03:42 [restartedMain] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-04-06 23:03:42 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-06 23:03:42 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-06 23:03:42 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-04-06 23:03:43 [restartedMain] INFO  o.a.c.c.C.[.[.[/retail-store] - Initializing Spring embedded WebApplicationContext
+2026-04-06 23:03:43 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5790 ms
+2026-04-06 23:03:43 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06 23:03:43 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-06 23:03:44 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-06 23:03:44 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06 23:03:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-06 23:03:45 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@52720ef5
+2026-04-06 23:03:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-06 23:03:47 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06 23:03:48 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 23:03:49 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-06 23:03:49 [restartedMain] INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: MYSQL
+2026-04-06 23:03:49 [restartedMain] INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2026-04-06 23:03:50 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:03:50 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:03:50 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:03:50 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:03:50 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:03:50 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:03:50 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-06 23:03:51 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06 23:03:52 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-06 23:03:52 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/retail-store'
+2026-04-06 23:03:52 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Started RetailStoreApplication in 18.677 seconds (process running for 20.182)
+2026-04-06 23:04:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775496840029, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 23:04:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 23:04:05 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 5s565ms
+2026-04-06 23:04:05 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775496840029, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 5s686ms
+2026-04-06 23:04:06 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=productUploadJob]] launched with the following parameters: [{'runId_productUploadJob':'{value=1775496845962, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/products-upload.csv, type=class java.lang.String, identifying=true}'}]
+2026-04-06 23:04:06 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [productUploadStep]
+2026-04-06 23:04:12 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [productUploadStep] executed in 6s248ms
+2026-04-06 23:04:12 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=productUploadJob]] completed with the following parameters: [{'runId_productUploadJob':'{value=1775496845962, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/products-upload.csv, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 6s349ms
+2026-04-06 23:05:19 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 23:05:19 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-06 23:05:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-06 23:05:30 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Starting RetailStoreApplication using Java 21.0.7 with PID 31720 (C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store\target\classes started by Keerthi.Samayam in C:\Users\Keerthi.Samayam\IntelliJIDEA\ResumeAddedProject\retail-store)
+2026-04-06 23:05:30 [restartedMain] INFO  c.retailstore.RetailStoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-06 23:05:31 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-06 23:05:31 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 12 ms.
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRepository already defined in the application context, skipping the registration of a jobRepository
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobExplorer already defined in the application context, skipping the registration of a jobExplorer
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobLauncher already defined in the application context, skipping the registration of a jobLauncher
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistry already defined in the application context, skipping the registration of a jobRegistry
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistryBeanPostProcessor already defined in the application context, skipping the registration of a jobRegistryBeanPostProcessor
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobOperator already defined in the application context, skipping the registration of a jobOperator
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 12 ms.
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRepository already defined in the application context, skipping the registration of a jobRepository
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobExplorer already defined in the application context, skipping the registration of a jobExplorer
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobLauncher already defined in the application context, skipping the registration of a jobLauncher
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistry already defined in the application context, skipping the registration of a jobRegistry
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobRegistryBeanPostProcessor already defined in the application context, skipping the registration of a jobRegistryBeanPostProcessor
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Bean jobOperator already defined in the application context, skipping the registration of a jobOperator
+2026-04-06 23:05:32 [restartedMain] INFO  o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 9 ms.
+2026-04-06 23:05:33 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06 23:05:33 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 361 ms. Found 12 JPA repository interfaces.
+2026-04-06 23:05:35 [restartedMain] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-04-06 23:05:36 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-06 23:05:36 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-06 23:05:36 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-04-06 23:05:36 [restartedMain] INFO  o.a.c.c.C.[.[.[/retail-store] - Initializing Spring embedded WebApplicationContext
+2026-04-06 23:05:36 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5281 ms
+2026-04-06 23:05:36 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06 23:05:37 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-06 23:05:37 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-06 23:05:37 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06 23:05:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-06 23:05:38 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e2904bb
+2026-04-06 23:05:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-06 23:05:40 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06 23:05:40 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 23:05:41 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-06 23:05:41 [restartedMain] INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: MYSQL
+2026-04-06 23:05:41 [restartedMain] INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2026-04-06 23:05:42 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:05:42 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:05:42 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:05:42 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:05:42 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:05:42 [restartedMain] INFO  o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-04-06 23:05:42 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-06 23:05:43 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06 23:05:44 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-06 23:05:44 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/retail-store'
+2026-04-06 23:05:44 [restartedMain] INFO  c.retailstore.RetailStoreApplication - Started RetailStoreApplication in 16.532 seconds (process running for 17.834)
+2026-04-06 23:06:00 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775496960026, type=class java.lang.Long, identifying=true}'}]
+2026-04-06 23:06:00 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
+2026-04-06 23:06:05 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [orderReportStep] executed in 5s585ms
+2026-04-06 23:06:05 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] completed with the following parameters: [{'runId_orderReportJob':'{value=1775496960026, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 5s691ms
+2026-04-06 23:06:05 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=productUploadJob]] launched with the following parameters: [{'runId_productUploadJob':'{value=1775496965845, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/products-upload.csv, type=class java.lang.String, identifying=true}'}]
+2026-04-06 23:06:05 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [productUploadStep]
+2026-04-06 23:06:11 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [productUploadStep] executed in 5s193ms
+2026-04-06 23:06:11 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=productUploadJob]] completed with the following parameters: [{'runId_productUploadJob':'{value=1775496965845, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/products-upload.csv, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 5s237ms
+2026-04-06 23:06:11 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=stockReconciliationJob]] launched with the following parameters: [{'runId_stockReconciliationJob':'{value=1775496971121, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/stocks-reconciliation.csv, type=class java.lang.String, identifying=true}'}]
+2026-04-06 23:06:11 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [stockReconciliationStep]
+2026-04-06 23:06:15 [scheduling-1] INFO  o.s.batch.core.step.AbstractStep - Step: [stockReconciliationStep] executed in 4s0ms
+2026-04-06 23:06:15 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=stockReconciliationJob]] completed with the following parameters: [{'runId_stockReconciliationJob':'{value=1775496971121, type=class java.lang.Long, identifying=true}','filePath':'{value=uploads/stocks-reconciliation.csv, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 4s49ms
+2026-04-06 23:06:34 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06 23:06:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-06 23:06:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

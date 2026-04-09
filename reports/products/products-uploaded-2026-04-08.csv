@@ -1,0 +1,11 @@
+id,categoryId,name,description,price,stock,status
+1,5,Product 1,Description for Product 1,951.52,226,Updated
+13,7,Product 13,Description for Product 13,915.95,43,Updated
+18,8,Product 18,Description for Product 18,858.86,58,Updated
+19,5,Product 19,Description for Product 19,831.96,148,Updated
+20,2,Product 20,Description for Product 20,786.32,467,Updated
+21,8,Product 21,Description for Product 21,731.88,283,Updated
+22,7,Product 22,Description for Product 22,915.19,304,Updated
+23,4,Product 23,Description for Product 23,285.17,278,Updated
+24,5,Product 24,Description for Product 24,905.50,333,Updated
+25,9,Product 25,Description for Product 25,82.04,464,Updated

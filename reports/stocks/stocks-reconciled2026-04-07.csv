@@ -1,0 +1,10 @@
+productId,warehouseStock,systemStock,stockDifference,status,message
+1,225,225,0,MATCH,No change
+13,43,43,0,MATCH,No change
+18,28,28,0,MATCH,No change
+19,18,18,0,MATCH,No change
+20,45,45,0,MATCH,No change
+101,50,-1,50,FAILED,Product not found
+102,74,-1,74,FAILED,Product not found
+103,0,-1,0,FAILED,Product not found
+104,120,-1,120,FAILED,Product not found

@@ -1,0 +1,97 @@
+<configuration scan = "true">
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!-- LOG PATTERN USED FOR FILE + CONSOLE -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"/>
+    <property name="LOG_LEVEL_ROOT" value="INFO"/>
+
+    <!-- =========== SPLUNK APPENDER (JSON + HEC (Http Event Collector)) =========== -->
+    <appender name="SPLUNK" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+
+        <url>http://localhost:8088</url>
+        <token>cfc37a96-d5c0-4b43-9629-7957f43a8247</token>
+        <host>localhost</host>
+        <index>retail_store_logs</index>
+        <source>http-event-logs</source>
+        <sourcetype>_json</sourcetype>
+        <disablecertificateValidation>true</disablecertificateValidation>
+
+        <messageFormat>text</messageFormat>
+
+        <!-- Batch improves performance -->
+        <maxEventBatchCount>1</maxEventBatchCount>
+        <batchInterval>100</batchInterval>
+
+        <!-- JSON encoding -->
+        <layout class="net.logstash.logback.layout.LogstashLayout">
+            <includeMdc>true</includeMdc> <!-- includes requestId -->
+            <timestampPattern>yyyy-MM-dd'T'HH:mm:ss.SSSZZ</timestampPattern>
+        </layout>
+
+        <debug>true</debug> <!-- prints HEC sending info to console/logs -->
+
+    </appender>
+    <!-- ====================== CONSOLE ====================== -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- ====================== MAIN FILE (EXCLUDE ERROR) ====================== -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/retail-store.log</file>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/retail-store-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- ====================== ERROR FILE (ONLY ERROR LEVEL) ====================== -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/retail-store-error.log</file>
+
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/retail-store-error-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- ================= SPLUNK DEBUG LOGGER ================= -->
+    <logger name="com.splunk.logging" level="DEBUG"/>
+
+    <!-- ====================== ROOT (ALL LEVELS) ====================== -->
+    <root level="${LOG_LEVEL_ROOT}">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+
+        <appender-ref ref="SPLUNK"/>
+    </root>
+
+</configuration>

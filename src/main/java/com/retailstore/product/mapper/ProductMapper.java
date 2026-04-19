@@ -19,6 +19,9 @@ public class ProductMapper {
     private ProductMapper(){}
 
     public static ProductResponseDTO mapToProductResponseDTO(Product product, int stock){
+        if (product == null) {
+            return null;
+        }
 
         return ProductResponseDTO.builder()
                 .id(product.getId())
@@ -27,6 +30,8 @@ public class ProductMapper {
                 .price(product.getPrice())
                 .quantity(stock)
                 .categoryId(product.getCategoryId())
+                .imageUrl(product.getImageUrl())
+                .deleted(product.getDeleted() != null && product.getDeleted())
                 .createdAt(product.getCreatedAt())
                 .updatedAt(product.getUpdatedAt())
                 .build();

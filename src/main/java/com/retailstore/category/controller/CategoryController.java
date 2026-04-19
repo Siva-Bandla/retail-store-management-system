@@ -54,6 +54,7 @@ public class CategoryController {
      * @return {@link ResponseEntity} containing a list of {@link CategoryResponseDTO}
      *         with HTTP status 200 (OK)
      */
+    @PreAuthorize("permitAll()")
     @GetMapping
     public ResponseEntity<List<CategoryResponseDTO>> getAllCategories(){
 

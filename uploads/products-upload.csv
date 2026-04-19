@@ -1,11 +1,121 @@
-id,categoryId,name,description,price,stock
-1,5,Product 1,Description for Product 1,951.52,226
-13,7,Product 13,Description for Product 13,915.95,43
-18,8,Product 18,Description for Product 18,858.86,58
-19,5,Product 19,Description for Product 19,831.96,148
-20,2,Product 20,Description for Product 20,786.32,467
-21,8,Product 21,Description for Product 21,731.88,283
-22,7,Product 22,Description for Product 22,915.19,304
-23,4,Product 23,Description for Product 23,285.17,278
-24,5,Product 24,Description for Product 24,905.50,333
-25,9,Product 25,Description for Product 25,82.04,464
+id,categoryId,name,description,price,quantity,imageUrl
+1,2,Mens T-Shirt,Cotton round-neck t-shirt,499,200,https://loremflickr.com/400/300/tshirt
+2,2,Denim Jeans,Slim fit mens jeans,1299,150,https://loremflickr.com/400/300/jeans
+3,2,Womens Dress,Floral summer dress,1599,100,https://loremflickr.com/400/300/dress
+4,7,Sports Shoes,Running shoes for men,2499,120,https://loremflickr.com/400/300/shoes
+5,4,Necklace,Gold-plated necklace,1999,80,https://loremflickr.com/400/300/necklace
+6,4,Face Cream,Moisturizing face cream,799,200,https://loremflickr.com/400/300/cream
+7,3,Cookware Set,Non-stick cookware set,3499,60,https://loremflickr.com/400/300/cookware
+8,1,Power Bank,10000mAh fast charging power bank,1499,90,https://loremflickr.com/400/300/powerbank
+9,1,Smartphone,Latest Android smartphone,24999,40,https://loremflickr.com/400/300/smartphone
+10,1,Laptop,Lightweight business laptop,59999,30,https://loremflickr.com/400/300/laptop
+11,3,Coffee Maker,Automatic drip coffee maker,2799,40,https://loremflickr.com/400/300/coffeemaker
+12,3,Blender,High-speed kitchen blender,3499,50,https://loremflickr.com/400/300/blender
+13,2,Sunglasses,Polarized UV protection sunglasses,1299,70,https://loremflickr.com/400/300/sunglasses
+14,7,Travel Backpack,Water-resistant travel backpack,2599,65,https://loremflickr.com/400/300/backpack
+15,7,Exercise Mat,Non-slip yoga and exercise mat,899,120,https://loremflickr.com/400/300/yogamat
+16,1,Wireless Headphones,Noise cancelling over-ear headphones,6499,45,https://loremflickr.com/400/300/headphones
+17,3,Desk Lamp,LED adjustable desk lamp,1999,85,https://loremflickr.com/400/300/lamp
+18,4,Perfume,Long-lasting floral perfume spray,2999,70,https://loremflickr.com/400/300/perfume
+19,3,Kitchen Knife Set,Professional stainless steel knife set,3999,35,https://loremflickr.com/400/300/knives
+20,7,Camping Tent,Lightweight 2-person camping tent,7999,25,https://loremflickr.com/400/300/tent
+21,1,Bluetooth Speaker,Portable wireless speaker with deep bass,1999,80,https://loremflickr.com/400/300/speaker
+22,1,Tablet,10-inch Android tablet for entertainment,15999,40,https://loremflickr.com/400/300/tablet
+23,1,Smartwatch,Fitness tracking smartwatch with heart rate monitor,4999,60,https://loremflickr.com/400/300/smartwatch
+24,1,Wireless Mouse,Ergonomic wireless mouse,799,150,https://loremflickr.com/400/300/mouse
+25,1,Mechanical Keyboard,RGB backlit mechanical keyboard,3499,70,https://loremflickr.com/400/300/keyboard
+26,1,External Hard Drive,1TB portable external storage,4599,55,https://loremflickr.com/400/300/harddrive
+27,1,USB-C Hub,Multiport USB-C adapter,1499,90,https://loremflickr.com/400/300/usb-hub
+28,1,Webcam,HD webcam for video conferencing,2299,65,https://loremflickr.com/400/300/webcam
+29,1,Router,Dual-band WiFi router,2999,50,https://loremflickr.com/400/300/router
+30,1,Monitor,24-inch full HD monitor,12999,35,https://loremflickr.com/400/300/monitor
+31,2,Casual Shirt,Men's casual cotton shirt,899,120,https://loremflickr.com/400/300/shirt
+32,2,Formal Shirt,Slim fit formal shirt,1299,100,https://loremflickr.com/400/300/formalshirt
+33,2,Leather Jacket,Stylish biker leather jacket,3999,60,https://loremflickr.com/400/300/jacket
+34,2,Women's Kurti,Traditional printed kurti,999,140,https://loremflickr.com/400/300/kurti
+35,2,Sneakers,Casual everyday sneakers,1999,110,https://loremflickr.com/400/300/sneakers
+36,2,Flip Flops,Comfortable beach flip flops,499,200,https://loremflickr.com/400/300/slippers
+37,2,Handbag,Women's leather handbag,2499,75,https://loremflickr.com/400/300/handbag
+38,2,Cap,Adjustable baseball cap,399,180,https://loremflickr.com/400/300/cap
+39,2,Scarf,Woolen winter scarf,699,90,https://loremflickr.com/400/300/scarf
+40,2,Belt,Genuine leather belt,899,130,https://loremflickr.com/400/300/belt
+41,3,Dining Table,Wooden 4-seater dining table,8999,25,https://loremflickr.com/400/300/diningtable
+42,3,Sofa Set,Comfortable 3-seater sofa,15999,20,https://loremflickr.com/400/300/sofa
+43,3,Wall Clock,Modern wall clock,799,100,https://loremflickr.com/400/300/clock
+44,3,Microwave Oven,20L convection microwave oven,7499,35,https://loremflickr.com/400/300/microwave
+45,3,Electric Kettle,1.5L fast boiling kettle,1299,80,https://loremflickr.com/400/300/kettle
+46,3,Vacuum Cleaner,High power vacuum cleaner,5999,40,https://loremflickr.com/400/300/vacuum
+47,3,Bed Sheet,Cotton double bed sheet set,999,120,https://loremflickr.com/400/300/bedsheet
+48,3,Curtains,Window curtains set,1499,90,https://loremflickr.com/400/300/curtains
+49,3,Storage Cabinet,Multi-purpose storage cabinet,4999,30,https://loremflickr.com/400/300/cabinet
+50,3,Table Lamp,Decorative bedside lamp,1299,85,https://loremflickr.com/400/300/tablelamp
+51,4,Shampoo,Anti-dandruff shampoo,499,150,https://loremflickr.com/400/300/shampoo
+52,4,Conditioner,Nourishing hair conditioner,599,140,https://loremflickr.com/400/300/conditioner
+53,4,Lipstick,Matte finish lipstick,799,120,https://loremflickr.com/400/300/lipstick
+54,4,Face Wash,Gentle face cleansing wash,299,200,https://loremflickr.com/400/300/facewash
+55,4,Hair Dryer,Compact hair dryer,1499,80,https://loremflickr.com/400/300/hairdryer
+56,4,Trimmer,Rechargeable grooming trimmer,1999,75,https://loremflickr.com/400/300/trimmer
+57,4,Nail Kit,Professional manicure kit,899,90,https://loremflickr.com/400/300/nailkit
+58,4,Body Lotion,Moisturizing body lotion,499,160,https://loremflickr.com/400/300/lotion
+59,4,Face Serum,Vitamins enriched face serum,1299,70,https://loremflickr.com/400/300/serum
+60,4,Sunscreen,SPF 50 sun protection cream,699,130,https://loremflickr.com/400/300/sunscreen
+61,5,Notebook,200-page ruled notebook,199,300,https://loremflickr.com/400/300/notebook
+62,5,Ball Pen Pack,Pack of 10 smooth ball pens,149,400,https://loremflickr.com/400/300/pen
+63,5,Diary,Hardcover personal diary,299,150,https://loremflickr.com/400/300/diary
+64,5,Drawing Book,A4 size sketch book,249,180,https://loremflickr.com/400/300/sketchbook
+65,5,Office File,Document storage file folder,99,350,https://loremflickr.com/400/300/filefolder
+66,5,Sticky Notes,Colorful sticky notes pack,129,250,https://loremflickr.com/400/300/stickynotes
+67,5,Calculator,Scientific calculator,599,120,https://loremflickr.com/400/300/calculator
+68,5,Highlighters,Set of 5 highlighters,199,200,https://loremflickr.com/400/300/highlighter
+69,5,Whiteboard,Magnetic whiteboard for office,1499,60,https://loremflickr.com/400/300/whiteboard
+70,5,Desk Organizer,Multi-compartment desk organizer,499,140,https://loremflickr.com/400/300/organizer
+71,6,Basmati Rice,Premium long grain rice 5kg,899,100,https://loremflickr.com/400/300/rice
+72,6,Wheat Flour,Whole wheat atta 5kg,299,150,https://loremflickr.com/400/300/flour
+73,6,Cooking Oil,Refined sunflower oil 1L,199,200,https://loremflickr.com/400/300/oil
+74,6,Sugar,Refined white sugar 1kg,49,250,https://loremflickr.com/400/300/sugar
+75,6,Tea Powder,Premium tea powder 500g,249,180,https://loremflickr.com/400/300/tea
+76,6,Coffee Powder,Instant coffee 200g,299,140,https://loremflickr.com/400/300/coffee
+77,6,Biscuits Pack,Assorted biscuits pack,99,300,https://loremflickr.com/400/300/biscuits
+78,6,Noodles,Instant noodles pack,149,220,https://loremflickr.com/400/300/noodles
+79,6,Detergent Powder,Laundry detergent 2kg,349,160,https://loremflickr.com/400/300/detergent
+80,6,Dishwash Liquid,Lemon dishwash liquid 500ml,149,180,https://loremflickr.com/400/300/dishwash
+81,7,Dumbbells Set,Adjustable dumbbells set,2999,70,https://loremflickr.com/400/300/dumbbells
+82,7,Skipping Rope,Fitness skipping rope,299,200,https://loremflickr.com/400/300/skippingrope
+83,7,Treadmill,Motorized home treadmill,24999,20,https://loremflickr.com/400/300/treadmill
+84,7,Cycling Helmet,Protective cycling helmet,1499,90,https://loremflickr.com/400/300/helmet
+85,7,Football,Standard size football,799,150,https://loremflickr.com/400/300/football
+86,7,Cricket Bat,Wooden cricket bat,1999,80,https://loremflickr.com/400/300/cricketbat
+87,7,Yoga Ball,Anti-burst gym ball,899,120,https://loremflickr.com/400/300/yogaball
+88,7,Resistance Bands,Workout resistance bands set,699,140,https://loremflickr.com/400/300/resistancebands
+89,7,Gym Gloves,Anti-slip workout gloves,499,160,https://loremflickr.com/400/300/gloves
+90,7,Water Bottle,Insulated sports water bottle,799,200,https://loremflickr.com/400/300/bottle
+91,8,Teddy Bear,Soft plush teddy bear,699,120,https://loremflickr.com/400/300/teddybear
+92,8,Building Blocks,Kids construction blocks set,999,100,https://loremflickr.com/400/300/blocks
+93,8,Remote Car,Remote control toy car,1499,80,https://loremflickr.com/400/300/remotecar
+94,8,Barbie Doll,Fashion doll for kids,1299,90,https://loremflickr.com/400/300/doll
+95,8,Baby Stroller,Comfortable baby stroller,5999,30,https://loremflickr.com/400/300/stroller
+96,8,Baby Diapers,Pack of baby diapers,799,150,https://loremflickr.com/400/300/diapers
+97,8,Educational Toy,Learning toy for toddlers,899,110,https://loremflickr.com/400/300/educationaltoy
+98,8,Puzzle Game,100-piece puzzle game,499,130,https://loremflickr.com/400/300/puzzle
+99,8,Toy Train,Electric toy train set,1799,70,https://loremflickr.com/400/300/train
+100,8,Kids Bicycle,Children's bicycle,4999,40,https://loremflickr.com/400/300/bicycle
+101,9,Car Cover,Waterproof car cover,1499,80,https://loremflickr.com/400/300/carcover
+102,9,Bike Helmet,ISI certified bike helmet,1999,100,https://loremflickr.com/400/300/bikehelmet
+103,9,Car Vacuum,Portable car vacuum cleaner,2499,60,https://loremflickr.com/400/300/carvacuum
+104,9,Seat Covers,Car seat cover set,2999,50,https://loremflickr.com/400/300/seatcover
+105,9,Engine Oil,4T engine oil 1L,499,200,https://loremflickr.com/400/300/engineoil
+106,9,Car Polish,Car body polish liquid,399,180,https://loremflickr.com/400/300/carpolish
+107,9,Tyre Inflator,Digital tyre inflator,1999,90,https://loremflickr.com/400/300/inflator
+108,9,Jump Starter,Portable car jump starter,4999,40,https://loremflickr.com/400/300/jumpstarter
+109,9,Dashboard Camera,Car dashcam HD recording,3499,70,https://loremflickr.com/400/300/dashcam
+110,9,Car Charger,Dual USB car charger,499,150,https://loremflickr.com/400/300/carcharger
+111,10,Protein Powder,Whey protein supplement 1kg,2999,80,https://loremflickr.com/400/300/protein
+112,10,Multivitamin Tablets,Daily multivitamin tablets,499,200,https://loremflickr.com/400/300/vitamins
+113,10,Digital Thermometer,Accurate body thermometer,299,150,https://loremflickr.com/400/300/thermometer
+114,10,Blood Pressure Monitor,Automatic BP monitor,1999,70,https://loremflickr.com/400/300/bpmonitor
+115,10,Weighing Scale,Digital body weight scale,1299,90,https://loremflickr.com/400/300/weighing
+116,10,Face Mask Pack,Disposable face masks pack,199,300,https://loremflickr.com/400/300/mask
+117,10,Hand Sanitizer,Alcohol-based sanitizer 500ml,149,250,https://loremflickr.com/400/300/sanitizer
+118,10,First Aid Kit,Complete first aid kit box,799,120,https://loremflickr.com/400/300/firstaid
+119,10,Fitness Tracker,Basic fitness tracking band,1999,100,https://loremflickr.com/400/300/fitnesstracker
+120,10,Massage Gun,Muscle recovery massage gun,4999,50,https://loremflickr.com/400/300/massagegun

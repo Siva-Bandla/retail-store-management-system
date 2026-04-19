@@ -22,18 +22,23 @@ public class JwtUtil {
 
     private final Key key = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
 
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60;
+    private static final long EXPIRATION_TIME = 1000 * 360;
 
-    public String generateToken(String email, List<String> roles){
+    public String generateToken(Long userId, String email, List<String> roles){
 
         return Jwts.builder()
                 .setSubject(email)
+                .claim("userId", userId)
                 .claim("roles", roles)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .setId(UUID.randomUUID().toString())
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
+    }
+
+    public Long extractUserId(String token){
+        return getClaims(token).get("userId", Long.class);
     }
 
     public String extractEmail(String token){

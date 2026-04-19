@@ -1,6 +1,5 @@
 package com.retailstore.batch.stock.util;
 
-import com.retailstore.batch.stock.model.StockReconciliationDTO;
 import com.retailstore.batch.stock.model.StockReconciliationView;
 import org.springframework.stereotype.Service;
 

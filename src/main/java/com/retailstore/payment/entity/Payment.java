@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "payments")
@@ -38,4 +39,11 @@ public class Payment {
     private PaymentStatus paymentStatus;
 
     private String transactionId;
+
+    private LocalDateTime paymentMadeAt = LocalDateTime.now();
+
+    @PrePersist
+    protected void onCreate() {
+        this.paymentMadeAt = LocalDateTime.now();
+    }
 }

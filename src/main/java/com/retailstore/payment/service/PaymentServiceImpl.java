@@ -8,12 +8,16 @@ import com.retailstore.order.repository.OrderRepository;
 import com.retailstore.payment.dto.PaymentRequestDTO;
 import com.retailstore.payment.dto.PaymentResponseDTO;
 import com.retailstore.payment.entity.Payment;
+import com.retailstore.payment.enums.PaymentMethod;
 import com.retailstore.payment.enums.PaymentStatus;
 import com.retailstore.payment.mapper.PaymentMapper;
 import com.retailstore.payment.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -147,5 +151,10 @@ public class PaymentServiceImpl implements PaymentService {
         Payment refundedPayment = paymentRepository.save(payment);
 
         return PaymentMapper.mapToPaymentResponseDTO(refundedPayment);
+    }
+
+    @Override
+    public List<PaymentMethod> getPaymentMethods() {
+        return Arrays.asList(PaymentMethod.values());
     }
 }

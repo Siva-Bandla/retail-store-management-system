@@ -39,6 +39,12 @@ public class User extends BaseEntity {
     private UserRole role;
 
     @Column(nullable = false)
+    private String securityQuestion;
+
+    @Column(nullable = false)
+    private String securityAnswer;
+
+    @Column(nullable = false)
     private int failedAttempts;
 
     @Column(nullable = false)

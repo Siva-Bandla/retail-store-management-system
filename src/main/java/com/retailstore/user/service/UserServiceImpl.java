@@ -78,6 +78,8 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(userRegisterRequestDTO.getPassword()));
         user.setPhone(userRegisterRequestDTO.getPhone());
         user.setRole(userRegisterRequestDTO.getRole());
+        user.setSecurityQuestion(userRegisterRequestDTO.getSecurityQuestion());
+        user.setSecurityAnswer(passwordEncoder.encode(userRegisterRequestDTO.getSecurityAnswer()));
         user.setFailedAttempts(0);
         user.setAccountLocked(false);
         userRepository.save(user);
@@ -138,13 +140,9 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "User does not exists with id: " + userId ));
 
-        if (!user.getEmail().equals(updateUserRequestDTO.getEmail())){
-            throw new IllegalArgumentException("Email cannot be changed");
-        }
-
         user.setName(updateUserRequestDTO.getName());
-        user.setPassword(passwordEncoder.encode(updateUserRequestDTO.getPassword()));
         user.setPhone(updateUserRequestDTO.getPhone());
+
         userRepository.save(user);
 
         return UserMapper.mapToUserResponseDTO(user);
@@ -210,6 +208,48 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
 
         return UserMapper.mapToUserResponseDTO(user);
+    }
+
+    @Override
+    public Boolean verifySecurityAnswer(SecurityVerifyRequestDTO securityVerifyRequestDTO) {
+
+        User user = userRepository.findByEmail(securityVerifyRequestDTO.getEmail())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        return passwordEncoder.matches(
+                securityVerifyRequestDTO.getSecurityAnswer(), user.getSecurityAnswer()
+        );
+    }
+
+    @Override
+    public void resetPassword(ResetPasswordRequestDTO resetPasswordRequestDTO) {
+
+        User user = userRepository.findByEmail(resetPasswordRequestDTO.getEmail())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        user.setPassword(passwordEncoder.encode(resetPasswordRequestDTO.getNewPassword()));
+
+        userRepository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public void changePassword(Long userId, ChangePasswordRequestDTO changePasswordRequestDTO) {
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
+
+        if (!passwordEncoder.matches(changePasswordRequestDTO.getOldPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("Old password is incorrect");
+        }
+
+        if (!changePasswordRequestDTO.getNewPassword().equals(changePasswordRequestDTO.getConfirmPassword())) {
+            throw new IllegalArgumentException("Password do not match");
+        }
+
+        user.setPassword(passwordEncoder.encode(changePasswordRequestDTO.getNewPassword()));
+
+        userRepository.save(user);
     }
 
 

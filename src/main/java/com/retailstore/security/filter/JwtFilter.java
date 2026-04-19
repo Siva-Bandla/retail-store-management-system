@@ -32,6 +32,12 @@ public class JwtFilter extends OncePerRequestFilter {
         this.customUserDetailsService = customUserDetailsService;
     }
 
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        // Skip JWT filter for preflight requests
+        return "OPTIONS".equalsIgnoreCase(request.getMethod());
+    }
+
     /**
      * Filters incoming HTTP requests to validate JWT tokens.
      *

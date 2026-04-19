@@ -23,6 +23,8 @@ public class ProductRequestDTO {
     @Positive
     private Integer quantity;
 
+    private Boolean deleted;
+
     @NotNull
     private Long categoryId;
 }

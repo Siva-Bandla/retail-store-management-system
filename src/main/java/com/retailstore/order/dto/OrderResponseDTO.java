@@ -1,6 +1,7 @@
 package com.retailstore.order.dto;
 
 import com.retailstore.order.enums.OrderStatus;
+import com.retailstore.payment.enums.PaymentMethod;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class OrderResponseDTO {
     private Long orderId;
     private Long userId;
     private OrderStatus status;
+    private PaymentMethod paymentMethod;
     private List<OrderItemResponseDTO> items;
     private BigDecimal totalAmount;
     private LocalDateTime createdAt;

@@ -1,9 +1,15 @@
+# ================================
 # Maven
+# ================================
 HELP.md
 target/
-.mvn/wwrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+# ================================
+# IDEs
+# ================================
 
 # STS (Spring Tool Suite)
 .apt_generated
@@ -33,19 +39,41 @@ build/
 # VS Code
 .vscode/
 
-# Java compiled files
+# ================================
+# Compiled / Build files
+# ================================
 *.class
 
-# Log files
+# ================================
+# Logs & Generated Files
+# ================================
+logs/
+reports/
 *.log
 
-# BlueJ
-*.ctxt
+# ================================
+# CSV Handling
+# ================================
 
-# J2ME
-.mtj.tmp/
+# Ignore all CSV files
+*.csv
 
-# Package files
+# ================================
+# Uploads Handling
+# ================================
+
+# Allow uploads folder
+!uploads/
+
+# Allow CSV files inside uploads
+!uploads/*.csv
+
+# Ignore images inside uploads
+uploads/images/
+
+# ================================
+# Archives / Packages
+# ================================
 *.jar
 *.war
 *.nar
@@ -54,6 +82,8 @@ build/
 *.tar.gz
 *.rar
 
+# ================================
 # JVM crash logs
+# ================================
 hs_err_pid*
 replay_pid*

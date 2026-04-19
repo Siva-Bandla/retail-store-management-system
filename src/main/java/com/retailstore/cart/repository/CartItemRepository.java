@@ -13,12 +13,11 @@ public interface CartItemRepository extends JpaRepository<CartItem, Long> {
 
     List<CartItem> findByCartId(Long cartId);
 
-    @Query(value = """
-            SELECT COUNT(*) > 0
-            FROM cart_items ci
-            JOIN carts c ON ci.cart_id = c.cart_id
-            WHERE ci.cart_item_id = :cartItemId
-              AND c.user_id = :userId
-            """, nativeQuery = true)
+    @Query("""
+        SELECT COUNT(ci) > 0
+        FROM CartItem ci
+        JOIN Cart c ON ci.cartId = c.id
+        WHERE ci.id = :cartItemId AND c.userId = :userId
+    """)
     boolean existsByIdAndCartUserId(Long cartItemId, Long userId);
 }

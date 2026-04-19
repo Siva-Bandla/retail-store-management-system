@@ -10,9 +10,15 @@ import com.retailstore.product.entity.Product;
 import com.retailstore.product.mapper.ProductMapper;
 import com.retailstore.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -36,12 +42,18 @@ import java.util.stream.Collectors;
 @Service
 public class ProductServiceImpl implements ProductService{
 
+    @Value("${app.base-url}")
+    private String baseUrl;
+    private static final Path IMAGE_UPLOAD_DIR = Paths.get("uploads", "images");
+
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final InventoryRepository inventoryRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository, InventoryRepository inventoryRepository){
+    public ProductServiceImpl(ProductRepository productRepository,
+                              CategoryRepository categoryRepository,
+                              InventoryRepository inventoryRepository){
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.inventoryRepository = inventoryRepository;
@@ -55,13 +67,15 @@ public class ProductServiceImpl implements ProductService{
      *     <li>Validates that the category specified in {@code productRequestDTO} exists.</li>
      *     <li>Creates a new {@link Product} entity and sets its name, description, price, and category.</li>
      *     <li>Saves the product to the database.</li>
-     *     <li>Maps the saved product to a {@link ProductResponseDTO}, including stock (defaults to 0 if inventory does not exist), and returns it.</li>
+     *     <li>Maps the saved product to a {@link ProductResponseDTO},
+     *     including stock (defaults to 0 if inventory does not exist), and returns it.</li>
      * </ol>
      * <p>
      * Note: Inventory creation and stock management are handled separately by the InventoryService.
      *
      * @param productRequestDTO DTO containing product details such as name, description, price, and categoryId.
-     * @return {@link ProductResponseDTO} containing the saved product information, including id, name, description, price, categoryId, and stock.
+     * @return {@link ProductResponseDTO} containing the saved product information,
+     * including id, name, description, price, categoryId, and stock.
      * @throws ResourceNotFoundException if the category with the specified ID does not exist.
      */
     @Override
@@ -81,6 +95,7 @@ public class ProductServiceImpl implements ProductService{
         product.setDescription(productRequestDTO.getDescription());
         product.setCategoryId(productRequestDTO.getCategoryId());
         product.setPrice(productRequestDTO.getPrice());
+
         Product savedProduct = productRepository.save(product);
 
         //Fetch or create inventory
@@ -93,7 +108,8 @@ public class ProductServiceImpl implements ProductService{
                 });
 
         //Update stock
-        inventory.setStock(inventory.getStock() + productRequestDTO.getQuantity());
+        inventory.setStock(inventory.getStock() +
+                (productRequestDTO.getQuantity() == null ? 0 : productRequestDTO.getQuantity()));
         inventoryRepository.save(inventory);
 
         //Map to DTO and return
@@ -119,7 +135,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<ProductResponseDTO> getAllProducts() {
 
-        List<Product> products = productRepository.findAllByDeletedFalse();
+        List<Product> products = productRepository.findAll();
 
         // Batch fetch inventory to avoid N+1 problem
         List<Long> productIds = products.stream()
@@ -150,13 +166,14 @@ public class ProductServiceImpl implements ProductService{
      * </ol>
      *
      * @param productId the ID of the product to retrieve.
-     * @return {@link ProductResponseDTO} containing the product information, including id, name, description, price, stock, and categoryId.
-     * @throws ResourceNotFoundException if no product is found with the specified {@code productId} and if already deleted.
+     * @return {@link ProductResponseDTO} containing the product information,
+     * including id, name, description, price, stock, and categoryId.
+     * @throws ResourceNotFoundException if no product is found with the specified {@code productId}.
      */
     @Override
     public ProductResponseDTO getProductById(Long productId) {
 
-        Product product = productRepository.findByIdAndDeletedFalse(productId)
+        Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Product not found with product id: " + productId
                 ));
@@ -181,7 +198,7 @@ public class ProductServiceImpl implements ProductService{
     @Transactional
     public ProductResponseDTO updateProduct(Long productId, ProductRequestDTO productRequestDTO) {
 
-        Product product = productRepository.findByIdAndDeletedFalse(productId)
+        Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Product not found with product id: " + productId
                 ));
@@ -196,7 +213,26 @@ public class ProductServiceImpl implements ProductService{
         product.setDescription(productRequestDTO.getDescription());
         product.setCategoryId(productRequestDTO.getCategoryId());
         product.setPrice(productRequestDTO.getPrice());
+
+        if (productRequestDTO.getDeleted() != null) {
+            product.setDeleted(productRequestDTO.getDeleted());
+        }
+
         Product savedProduct = productRepository.save(product);
+
+        //Fetch or create inventory
+        Inventory inventory = inventoryRepository.findByProductId(savedProduct.getId())
+                .orElseGet(() -> {
+                    Inventory newInventory = new Inventory();
+                    newInventory.setProductId(savedProduct.getId());
+                    newInventory.setStock(0);
+                    return newInventory;
+                });
+
+        //Update stock
+        inventory.setStock(inventory.getStock() +
+                (productRequestDTO.getQuantity() == null ? 0 : productRequestDTO.getQuantity()));
+        inventoryRepository.save(inventory);
 
         return ProductMapper.mapToProductResponseDTO(savedProduct, fetchStock(productId));
     }
@@ -209,14 +245,15 @@ public class ProductServiceImpl implements ProductService{
      * </p>
      *
      * @param productId The ID of the product to delete.
-     * @return {@link ProductResponseDTO} containing the details of the deleted product, including stock if inventory existed.
+     * @return {@link ProductResponseDTO} containing the details of the deleted product,
+     * including stock if inventory existed.
      * @throws ResourceNotFoundException if the product with the given ID does not exist.
      */
     @Override
     @Transactional
     public ProductResponseDTO deleteProduct(Long productId) {
 
-        Product product = productRepository.findByIdAndDeletedFalse(productId)
+        Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Product not found with product id: " + productId
                 ));
@@ -227,13 +264,87 @@ public class ProductServiceImpl implements ProductService{
         product.setDeleted(true);
         productRepository.save(product);
 
-        inventoryRepository.findByProductIdAndDeletedFalse(productId)
-                .ifPresent(inventory -> {
-                    inventory.setDeleted(true);
-                    inventoryRepository.save(inventory);
-                });
-
         return productResponseDTO;
+    }
+
+    @Override
+    @Transactional
+    public ProductResponseDTO saveProductImage(Long productId, MultipartFile file) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Product not found with product id: " + productId
+                ));
+
+        try {
+            Files.createDirectories(IMAGE_UPLOAD_DIR);
+
+            // DELETE OLD IMAGE
+            if (product.getImageUrl() != null) {
+                try {
+                    String oldImageName = product.getImageUrl().substring(
+                            product.getImageUrl().lastIndexOf("/") + 1
+                    );
+
+                    Path oldImagePath = IMAGE_UPLOAD_DIR.resolve(oldImageName);
+                    Files.deleteIfExists(oldImagePath);
+
+                } catch (Exception e) {
+                    System.out.println("Failed to delete old image: " + e.getMessage());
+                }
+            }
+
+            String extension = "";
+            String originalName = file.getOriginalFilename();
+            if (originalName != null && originalName.contains(".")) {
+                extension = originalName.substring(originalName.lastIndexOf("."));
+            }
+
+            String filename = "product-" + productId + "-" + System.currentTimeMillis() + extension;
+            Path targetPath = IMAGE_UPLOAD_DIR.resolve(filename);
+            Files.copy(file.getInputStream(), targetPath);
+
+            product.setImageUrl(baseUrl + "/images/" + filename);
+            productRepository.save(product);
+
+            return ProductMapper.mapToProductResponseDTO(product, fetchStock(productId));
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to store product image", e);
+        }
+    }
+
+    @Override
+    public List<ProductResponseDTO> getProductsByCategory(Long categoryId) {
+
+        // Validate category exists
+        if (!categoryRepository.existsById(categoryId)) {
+            throw new ResourceNotFoundException(
+                    "Category not found with id: " + categoryId
+            );
+        }
+
+        List<Product> products =
+                productRepository.findByCategoryId(categoryId);
+
+        // Batch fetch inventory
+        List<Long> productIds = products.stream()
+                .map(Product::getId)
+                .toList();
+
+        List<Inventory> inventories =
+                inventoryRepository.findByProductIdInAndDeletedFalse(productIds);
+
+        Map<Long, Integer> stockMap = inventories.stream()
+                .collect(Collectors.toMap(
+                        Inventory::getProductId,
+                        Inventory::getStock
+                ));
+
+        return products.stream()
+                .map(product -> ProductMapper.mapToProductResponseDTO(
+                        product,
+                        stockMap.getOrDefault(product.getId(), 0)
+                ))
+                .collect(Collectors.toList());
     }
 
     private int fetchStock(Long productId){

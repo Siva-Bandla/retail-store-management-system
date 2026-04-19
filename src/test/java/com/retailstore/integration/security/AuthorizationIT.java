@@ -105,10 +105,6 @@ public class AuthorizationIT extends BaseIntegrationTest {
                         .content(validProductJson))
                 .andExpect(status().isForbidden());
 
-        mockMvc.perform(get("/categories")
-                        .header("Authorization", "Bearer " + customerJwt))
-                .andExpect(status().isForbidden());
-
         mockMvc.perform(get("/inventories")
                         .header("Authorization", "Bearer " + customerJwt))
                 .andExpect(status().isForbidden());
@@ -192,6 +188,9 @@ public class AuthorizationIT extends BaseIntegrationTest {
                 .andExpect(status().isOk());
 
         mockMvc.perform(get("/products/%d".formatted(savedProduct.getId())))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/categories"))
                 .andExpect(status().isOk());
     }
 }

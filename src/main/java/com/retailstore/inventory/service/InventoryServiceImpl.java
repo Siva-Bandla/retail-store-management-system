@@ -95,7 +95,7 @@ public class InventoryServiceImpl implements InventoryService {
     @Transactional
     public InventoryResponseDTO updateInventory(Long inventoryId, InventoryRequestDTO inventoryRequestDTO) {
 
-        Inventory inventory = inventoryRepository.findByIdAndDeletedFalse(inventoryId)
+        Inventory inventory = inventoryRepository.findById(inventoryId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Inventory not found with the product id: " + inventoryId
                 ));
@@ -110,9 +110,9 @@ public class InventoryServiceImpl implements InventoryService {
 
         if (inventoryRequestDTO.getStock() <= 0)  throw new IllegalArgumentException("Quantity must be greater than 0");
 
-        int updatedQuantity = inventory.getStock() + inventoryRequestDTO.getStock();
+        inventory.setStock(inventoryRequestDTO.getStock());
 
-        inventory.setStock(updatedQuantity);
+        inventory.setDeleted(false);
 
         Inventory updatedInventory = inventoryRepository.save(inventory);
 

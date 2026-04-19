@@ -26,20 +26,30 @@ public class ProductCSVGenerator {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(csv))) {
 
-            writer.write("id,categoryId,name,description,price,stock,status");
+            writer.write("id,categoryId,name,description,price,quantity,imageUrl,status");
             writer.newLine();
 
             for (ProductUploadDTO dto: products) {
                 writer.write(dto.getId() + "," +
                         dto.getCategoryId() + "," +
-                        dto.getName() + "," +
-                        dto.getDescription() + "," +
+                        escapeCSV(dto.getName()) + "," +
+                        escapeCSV(dto.getDescription()) + "," +
                         dto.getPrice() + "," +
-                        dto.getStock() + "," +
+                        dto.getQuantity() + "," +
+                        dto.getImageUrl() + "," +
                         dto.getStatus());
                 writer.newLine();
             }
         }
         return csv;
     }
+
+    private String escapeCSV(String value) {
+        if (value == null) return "";
+        if (value.contains(",") || value.contains("\"") || value.contains("\n")) {
+            return "\"" + value.replace("\"", "\"\"") + "\"";
+        }
+        return value;
+    }
+
 }

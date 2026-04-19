@@ -29,7 +29,7 @@ public class JwtUtilTest {
 
     @Test
     void shouldGenerateTokenSuccessfully(){
-        String token = jwtUtil.generateToken("test@example.com", List.of("ROLE_CUSTOMER"));
+        String token = jwtUtil.generateToken(1L, "test@example.com", List.of("ROLE_CUSTOMER"));
 
         assertNotNull(token);
         assertFalse(token.isEmpty());
@@ -37,7 +37,7 @@ public class JwtUtilTest {
 
     @Test
     void shouldExtractEmailFromToken(){
-        String token = jwtUtil.generateToken("john@example.com", List.of("ROLE_ADMIN"));
+        String token = jwtUtil.generateToken(2L, "john@example.com", List.of("ROLE_ADMIN"));
         String extractedEmail = jwtUtil.extractEmail(token);
 
         assertEquals("john@example.com", extractedEmail);
@@ -46,7 +46,7 @@ public class JwtUtilTest {
     @Test
     void shouldExtractRolesFromToken(){
         List<String> roles = List.of("ROLE_ADMIN", "ROLE_CUSTOMER");
-        String token = jwtUtil.generateToken("john@example.com",roles);
+        String token = jwtUtil.generateToken(3L, "john@example.com",roles);
         List<String> extractedRoles = jwtUtil.extractRoles(token);
 
         assertFalse(extractedRoles.isEmpty());
@@ -55,7 +55,7 @@ public class JwtUtilTest {
 
     @Test
     void shouldValidateToken() {
-        String token = jwtUtil.generateToken("alex@example.com", List.of("ROLE_CUSTOMER"));
+        String token = jwtUtil.generateToken(4L, "alex@example.com", List.of("ROLE_CUSTOMER"));
 
         assertTrue(jwtUtil.validateToken(token));
     }
@@ -64,7 +64,7 @@ public class JwtUtilTest {
     void shouldRejectExpiredToken() throws Exception {
         JwtUtil util = new JwtUtil();
 
-        String token = util.generateToken("expired@example.com", List.of("ROLE_CUSTOMER"));
+        String token = util.generateToken(5L, "expired@example.com", List.of("ROLE_CUSTOMER"));
 
         var secretField = JwtUtil.class.getDeclaredField("SECRET");
         secretField.setAccessible(true);
@@ -90,7 +90,7 @@ public class JwtUtilTest {
 
     @Test
     void shouldRejectTamperedToken(){
-        String token = jwtUtil.generateToken("tamper@example.com", List.of("ROLE_CUSTOMER"));
+        String token = jwtUtil.generateToken(6L, "tamper@example.com", List.of("ROLE_CUSTOMER"));
 
         String tampered = token.substring(0, token.length() - 2) + "xx";
 

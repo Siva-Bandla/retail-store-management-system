@@ -28,7 +28,8 @@ public class BatchScheduler {
             // Add more jobs with custom parameters here if needed
     );
 
-    @Scheduled(cron = "0 0 2  * * *")
+    @Scheduled(cron = "0 */5 *  * * *")
+//    @Scheduled(cron = "0 0 2  * * *")
     public void runScheduledJobs() {
 
         jobs.forEach((jobName, job) -> {

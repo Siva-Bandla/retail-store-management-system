@@ -11,6 +11,7 @@ public class CartMapper {
     public static CartItemDTO mapToCartItemDTO(CartItem item, Product product){
 
         return CartItemDTO.builder()
+                .cartItemId(item.getId())
                 .productId(product.getId())
                 .productName(product.getName())
                 .price(product.getPrice())

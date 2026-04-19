@@ -25,4 +25,10 @@ public class UserRegisterRequestDTO {
 
     @NotNull(message = "User should have role id")
     private UserRole role;
+
+    @NotBlank(message = "Security question cannot be blank")
+    private String securityQuestion;
+
+    @NotBlank(message = "Security answer cannot be blank")
+    private String securityAnswer;
 }

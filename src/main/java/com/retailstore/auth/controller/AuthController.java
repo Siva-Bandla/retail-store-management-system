@@ -66,7 +66,7 @@ public class AuthController {
 
         List<String> roles = List.of(user.getRole().name());
 
-        String newAccessToken = jwtUtil.generateToken(token.getUsername(), roles);
+        String newAccessToken = jwtUtil.generateToken(user.getId(), token.getUsername(), roles);
 
         return new AuthResponseDTO(newAccessToken, refreshToken);
     }

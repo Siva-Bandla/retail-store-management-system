@@ -36,7 +36,8 @@ public class CartController {
      * @param addToCartRequestDTO request containing userId, productId, and quantity
      * @return updated cart details
      */
-    @PreAuthorize("hasRole('CUSTOMER') and #addToCartRequestDTO.userId == authentication.principal.id")
+//    @PreAuthorize("hasRole('CUSTOMER') and #addToCartRequestDTO.userId == authentication.principal.id")
+    @PreAuthorize("#addToCartRequestDTO.userId == authentication.principal.id")
     @PostMapping("/add")
     public ResponseEntity<CartResponseDTO> addToCart(@RequestBody AddToCartRequestDTO addToCartRequestDTO){
 
@@ -49,7 +50,8 @@ public class CartController {
      * @param cartItemId ID of the cart item to remove
      * @return details of the removed cart item
      */
-    @PreAuthorize("hasRole('CUSTOMER') and @cartSecurity.isOwnerByCartItemId(#cartItemId, authentication)")
+//    @PreAuthorize("hasRole('CUSTOMER') and @cartSecurity.isOwnerByCartItemId(#cartItemId, authentication)")
+    @PreAuthorize("@cartSecurity.isOwnerByCartItemId(#cartItemId, authentication)")
     @DeleteMapping("/item/{cartItemId}")
     public ResponseEntity<CartItemDTO> removeFromCart(@PathVariable Long cartItemId){
 

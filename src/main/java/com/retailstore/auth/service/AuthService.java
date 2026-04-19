@@ -111,7 +111,7 @@ public class AuthService {
                     .map(GrantedAuthority::getAuthority)
                     .toList();
 
-            String accessToken = jwtUtil.generateToken(customUserDetails.getUsername(), roles);
+            String accessToken = jwtUtil.generateToken(user.getId(), customUserDetails.getUsername(), roles);
             String refreshToken = refreshTokenService.createRefreshToken(customUserDetails.getUsername());
 
             return new AuthResponseDTO(accessToken, refreshToken);

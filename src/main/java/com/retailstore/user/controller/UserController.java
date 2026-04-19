@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * REST controller responsible for managing user-related operations.
@@ -115,5 +116,32 @@ public class UserController {
     public ResponseEntity<DeletedUserAndAddressResponseDTO> deleteUser(@PathVariable Long userId){
 
         return ResponseEntity.ok(userService.deleteUser(userId));
+    }
+
+    @PostMapping("/verify-security-answer")
+    public ResponseEntity<Map<String, Boolean>> verifySecurityAnswer(@RequestBody SecurityVerifyRequestDTO securityVerifyRequestDTO) {
+
+        boolean result = userService.verifySecurityAnswer(securityVerifyRequestDTO);
+
+        return ResponseEntity.ok(Map.of("verified", result));
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<Map<String, String>> resetPassword(@RequestBody ResetPasswordRequestDTO resetPasswordRequestDTO) {
+
+        userService.resetPassword(resetPasswordRequestDTO);
+
+        return ResponseEntity.ok(Map.of("message", "Password reset successful"));
+    }
+
+    @PreAuthorize("@userSecurity.isOwnerByUserId(#userId, authentication)")
+    @PutMapping("/{userId}/change-password")
+    public ResponseEntity<Map<String, String>> changePassword(
+            @PathVariable Long userId,
+            @Valid @RequestBody ChangePasswordRequestDTO dto) {
+
+        userService.changePassword(userId, dto);
+
+        return ResponseEntity.ok(Map.of("message", "Password changed successfully"));
     }
 }

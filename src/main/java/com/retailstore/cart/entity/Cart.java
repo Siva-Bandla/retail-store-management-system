@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "carts")
 @Getter
@@ -22,4 +24,8 @@ public class Cart extends BaseEntity {
 
     @Column(name = "user_id", nullable = false, unique = true)
     private Long userId;
+
+    public void touchCart() {
+        setUpdatedAt(LocalDateTime.now());
+    }
 }

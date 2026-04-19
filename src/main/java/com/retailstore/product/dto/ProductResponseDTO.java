@@ -20,6 +20,8 @@ public class ProductResponseDTO {
     private BigDecimal price;
     private Integer quantity;
     private Long categoryId;
+    private String imageUrl;
+    private Boolean deleted;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

@@ -81,7 +81,7 @@ public class AuthServiceTest {
         when(userRepository.findByEmail("john@example.com")).thenReturn(Optional.of(user));
         when(authenticationManager.authenticate(any())).thenReturn(auth);
 
-        when(jwtUtil.generateToken(any(), any())).thenReturn("access-token");
+        when(jwtUtil.generateToken(eq(user.getId()), any(), any())).thenReturn("access-token");
         when(refreshTokenService.createRefreshToken(any())).thenReturn("refresh-token");
 
         AuthResponseDTO response = authService.login(buildLoginRequest());
@@ -127,7 +127,7 @@ public class AuthServiceTest {
         when(userRepository.findByEmail("john@example.com")).thenReturn(Optional.of(user));
         when(authenticationManager.authenticate(any())).thenReturn(auth);
 
-        when(jwtUtil.generateToken(any(), any())).thenReturn("access-token");
+        when(jwtUtil.generateToken(eq(user.getId()), any(), any())).thenReturn("access-token");
         when(refreshTokenService.createRefreshToken(any())).thenReturn("refresh-token");
 
         AuthResponseDTO response = authService.login(buildLoginRequest());

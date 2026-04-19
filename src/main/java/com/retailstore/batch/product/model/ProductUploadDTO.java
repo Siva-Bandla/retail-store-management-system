@@ -16,7 +16,7 @@ public class ProductUploadDTO {
     private String name;
     private String description;
     private BigDecimal price;
-    private Integer stock;
-
+    private Integer quantity;
+    private String imageUrl;
     private String status;
 }

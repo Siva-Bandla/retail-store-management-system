@@ -4,6 +4,8 @@ import com.retailstore.order.dto.OrderItemResponseDTO;
 import com.retailstore.order.dto.OrderResponseDTO;
 import com.retailstore.order.entity.Order;
 import com.retailstore.order.entity.OrderItem;
+import com.retailstore.payment.entity.Payment;
+import com.retailstore.payment.enums.PaymentMethod;
 
 import java.util.List;
 
@@ -41,6 +43,28 @@ public class OrderMapper {
                 .orderId(order.getId())
                 .userId(order.getUserId())
                 .status(order.getStatus())
+                .items(responseItems)
+                .totalAmount(order.getTotalAmount())
+                .createdAt(order.getCreatedAt())
+                .build();
+    }
+
+    public static OrderResponseDTO mapToOrderResponseDTO(Order order, List<OrderItem> orderItems,
+                                                         PaymentMethod paymentMethod){
+
+        List<OrderItemResponseDTO> responseItems = orderItems.stream()
+                .map(orderItem -> OrderItemResponseDTO.builder()
+                        .productId(orderItem.getProductId())
+                        .productName(orderItem.getProductName())
+                        .price(orderItem.getPrice())
+                        .quantity(orderItem.getQuantity())
+                        .build()).toList();
+
+        return OrderResponseDTO.builder()
+                .orderId(order.getId())
+                .userId(order.getUserId())
+                .status(order.getStatus())
+                .paymentMethod(paymentMethod)
                 .items(responseItems)
                 .totalAmount(order.getTotalAmount())
                 .createdAt(order.getCreatedAt())

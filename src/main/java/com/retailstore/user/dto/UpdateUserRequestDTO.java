@@ -12,13 +12,6 @@ public class UpdateUserRequestDTO {
     @Size(max = 100, message = "User name cannot exceed 100 characters")
     private String name;
 
-    @NotBlank(message = "email cannot be blank")
-    @Email(message = "Invalid email format")
-    private String email;
-
-    @NotBlank(message = "Password cannot be blank")
-    private String password;
-
     @Pattern(regexp = "^[0-9]{10}$", message = "Phone number must be 10 digits")
     private String phone;
 }

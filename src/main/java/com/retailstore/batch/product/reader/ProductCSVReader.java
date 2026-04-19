@@ -20,7 +20,7 @@ public class ProductCSVReader {
                 .name("productCSVReader")
                 .resource(new FileSystemResource(filePath))
                 .delimited()
-                .names("id", "categoryId", "name", "description", "price", "stock")
+                .names("id", "categoryId", "name", "description", "price", "quantity", "imageUrl")
                 .targetType(ProductUploadDTO.class)
                 .linesToSkip(1)
                 .build();

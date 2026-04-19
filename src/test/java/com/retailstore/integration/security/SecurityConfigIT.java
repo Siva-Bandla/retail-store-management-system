@@ -177,9 +177,6 @@ public class SecurityConfigIT extends BaseIntegrationTest {
                         .content(categoryBody))
                 .andExpect(status().isUnauthorized());
 
-        mockMvc.perform(get("/categories"))
-                .andExpect(status().isUnauthorized());
-
         mockMvc.perform(delete("/categories/%d".formatted(savedCategory.getId())))
                 .andExpect(status().isUnauthorized());
     }

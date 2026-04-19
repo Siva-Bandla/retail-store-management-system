@@ -90,25 +90,16 @@ public class CategoryControllerIT extends BaseIntegrationTest {
 
     //=================<< Get All Categories >>====================
     @Test
-    @DisplayName("Admin can get all categories")
-    void adminCanGetAllCategories() throws Exception {
+    @DisplayName("Anyone can get all categories")
+    void anyoneCanGetAllCategories() throws Exception {
 
         categoryTestData.createCategory("Sports");
         categoryTestData.createCategory("Fashion");
 
         mockMvc.perform(get("/categories")
-                        .header("Authorization", token(savedAdmin)))
+                        .header("Authorization", token(savedCustomer)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(3)));
-    }
-
-    @Test
-    @DisplayName("Customer cannot get all categories")
-    void customerCannotGetAllCategories() throws Exception {
-
-        mockMvc.perform(get("/categories")
-                        .header("Authorization", token(savedCustomer)))
-                .andExpect(status().isForbidden());
     }
 
     //=================<< Get Category By Id >>====================

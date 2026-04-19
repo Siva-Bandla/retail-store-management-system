@@ -2,6 +2,7 @@ package com.retailstore.payment.controller;
 
 import com.retailstore.payment.dto.PaymentRequestDTO;
 import com.retailstore.payment.dto.PaymentResponseDTO;
+import com.retailstore.payment.enums.PaymentMethod;
 import com.retailstore.payment.service.PaymentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * REST controller responsible for handling payment operations.
@@ -33,7 +37,8 @@ public class PaymentController {
      * @param paymentRequestDTO payment request containing orderId and payment method
      * @return details of the processed payment
      */
-    @PreAuthorize("hasRole('CUSTOMER') and @orderSecurity.isOwnerByOrderId(#paymentRequestDTO.orderId, authentication)")
+//    @PreAuthorize("hasRole('CUSTOMER') and @orderSecurity.isOwnerByOrderId(#paymentRequestDTO.orderId, authentication)")
+    @PreAuthorize("@orderSecurity.isOwnerByOrderId(#paymentRequestDTO.orderId, authentication)")
     @PostMapping
     public ResponseEntity<PaymentResponseDTO> processPayment(@Valid @RequestBody PaymentRequestDTO paymentRequestDTO){
 
@@ -77,5 +82,10 @@ public class PaymentController {
     public ResponseEntity<PaymentResponseDTO> refundPayment(@PathVariable Long orderId){
 
         return ResponseEntity.ok(paymentService.refundPayment(orderId));
+    }
+
+    @GetMapping("/methods")
+    public ResponseEntity<List<PaymentMethod>> getPaymentMethods() {
+        return ResponseEntity.ok(Arrays.asList(PaymentMethod.values()));
     }
 }

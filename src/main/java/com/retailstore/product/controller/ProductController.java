@@ -7,9 +7,11 @@ import com.retailstore.product.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<ProductResponseDTO>> getAllProducts(){
 
-        return ResponseEntity.status(HttpStatus.OK).body(productService.getAllProducts());
+        return ResponseEntity.ok(productService.getAllProducts());
     }
 
     /**
@@ -65,7 +67,7 @@ public class ProductController {
     @GetMapping("/{productId}")
     public ResponseEntity<ProductResponseDTO> getProductById(@PathVariable Long productId){
 
-        return ResponseEntity.status(HttpStatus.OK).body(productService.getProductById(productId));
+        return ResponseEntity.ok(productService.getProductById(productId));
     }
 
     /**
@@ -81,7 +83,7 @@ public class ProductController {
     public ResponseEntity<ProductResponseDTO> updateProduct(@PathVariable Long productId,
                                                             @Valid @RequestBody ProductRequestDTO productRequestDTO){
 
-        return ResponseEntity.status(HttpStatus.OK).body(productService.updateProduct(productId, productRequestDTO));
+        return ResponseEntity.ok(productService.updateProduct(productId, productRequestDTO));
     }
 
     /**
@@ -95,6 +97,22 @@ public class ProductController {
     @DeleteMapping("/{productId}")
     public ResponseEntity<ProductResponseDTO> deleteProduct(@PathVariable Long productId){
 
-        return ResponseEntity.status(HttpStatus.OK).body(productService.deleteProduct(productId));
+        return ResponseEntity.ok(productService.deleteProduct(productId));
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping(value = "/{productId}/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ProductResponseDTO> uploadProductImage(
+            @PathVariable Long productId,
+            @RequestParam("file") MultipartFile file) {
+
+        return ResponseEntity.ok(productService.saveProductImage(productId, file));
+    }
+
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<ProductResponseDTO>> getProductsByCategory(
+            @PathVariable Long categoryId) {
+
+        return ResponseEntity.ok(productService.getProductsByCategory(categoryId));
     }
 }

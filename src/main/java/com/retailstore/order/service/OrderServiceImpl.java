@@ -19,6 +19,9 @@ import com.retailstore.order.entity.Order;
 import com.retailstore.order.mapper.OrderMapper;
 import com.retailstore.order.repository.OrderItemRepository;
 import com.retailstore.order.repository.OrderRepository;
+import com.retailstore.payment.entity.Payment;
+import com.retailstore.payment.enums.PaymentMethod;
+import com.retailstore.payment.repository.PaymentRepository;
 import com.retailstore.payment.service.PaymentService;
 import com.retailstore.product.entity.Product;
 import com.retailstore.product.repository.ProductRepository;
@@ -31,6 +34,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -60,12 +64,13 @@ public class OrderServiceImpl implements OrderService {
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
     private final PaymentService paymentService;
+    private final PaymentRepository paymentRepository;
 
     @Autowired
     public OrderServiceImpl(UserRepository userRepository, ProductRepository productRepository,
                             OrderRepository orderRepository, OrderItemRepository orderItemRepository,
                             InventoryRepository inventoryRepository, CartRepository cartRepository,
-                            CartItemRepository cartItemRepository, PaymentService paymentService) {
+                            CartItemRepository cartItemRepository, PaymentService paymentService, PaymentRepository paymentRepository) {
         this.userRepository = userRepository;
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
@@ -74,6 +79,7 @@ public class OrderServiceImpl implements OrderService {
         this.cartRepository = cartRepository;
         this.cartItemRepository = cartItemRepository;
         this.paymentService = paymentService;
+        this.paymentRepository = paymentRepository;
     }
 
 
@@ -214,7 +220,12 @@ public class OrderServiceImpl implements OrderService {
                     List<OrderItem> orderItems =
                             orderItemRepository.findByOrderId(order.getId());
 
-                    return OrderMapper.mapToOrderResponseDTO(order, orderItems);
+                    Optional<Payment> payment = paymentRepository.findByOrderId(order.getId());
+                    PaymentMethod paymentMethod = payment
+                            .map(Payment::getPaymentMethod)
+                            .orElse(null);
+
+                    return OrderMapper.mapToOrderResponseDTO(order, orderItems, paymentMethod);
                 })
                 .toList();
     }
@@ -233,13 +244,17 @@ public class OrderServiceImpl implements OrderService {
 
         List<Order> orders = orderRepository.findByUserId(userId);
 
-        if (orders.isEmpty()) throw new ResourceNotFoundException("no orders found for user id: " + userId);
-
         return orders.stream()
                 .map(order -> {
                     List<OrderItem> items =
                             orderItemRepository.findByOrderId(order.getId());
-                    return OrderMapper.mapToOrderResponseDTO(order, items);
+
+                    Optional<Payment> payment = paymentRepository.findByOrderId(order.getId());
+                    PaymentMethod paymentMethod = payment
+                            .map(Payment::getPaymentMethod)
+                            .orElse(null);
+
+                    return OrderMapper.mapToOrderResponseDTO(order, items, paymentMethod);
                 }).toList();
     }
 
@@ -258,7 +273,7 @@ public class OrderServiceImpl implements OrderService {
 
         Order order = orderRepository.findByIdAndDeletedFalse(orderId)
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "Order not found with id: " + orderId
+                        "Order not found/cancelled with id: " + orderId
                 ));
 
         if (request.getStatus().equals(OrderStatus.PAID)){

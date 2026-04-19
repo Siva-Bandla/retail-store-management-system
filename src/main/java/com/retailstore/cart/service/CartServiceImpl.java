@@ -123,6 +123,9 @@ public class CartServiceImpl implements CartService {
 
         cartItemRepository.save(cartItem);
 
+        cart.touchCart();
+        cartRepository.save(cart);
+
         return buildCartResponse(cart);
     }
 
@@ -149,6 +152,12 @@ public class CartServiceImpl implements CartService {
 
         cartItemRepository.delete(cartItem);
 
+        Cart cart = cartRepository.findById(cartItem.getCartId())
+                .orElseThrow(() -> new ResourceNotFoundException("Cart not found"));
+
+        cart.touchCart();
+        cartRepository.save(cart);
+
         return cartItemDTO;
     }
 
@@ -166,7 +175,11 @@ public class CartServiceImpl implements CartService {
         validateUser(userId);
 
         Cart cart = cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Cart not found for user: " + userId));
+                .orElseGet(() -> {
+                    Cart newCart = new Cart();
+                    newCart.setUserId(userId);
+                    return cartRepository.save(newCart);
+                });
 
         return buildCartResponse(cart);
     }
@@ -193,6 +206,9 @@ public class CartServiceImpl implements CartService {
         }
 
         cartItemRepository.deleteAll(cartItems);
+
+        cart.touchCart();
+        cartRepository.save(cart);
 
         return buildCartResponse(cart);
     }

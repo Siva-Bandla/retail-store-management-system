@@ -1,6 +1,0 @@
-2026-04-09 07:33:41 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21h39m36s394ms633µs900ns).
-2026-04-09 07:35:49 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m8s820ms581µs400ns).
-2026-04-09 07:38:02 [scheduling-1] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=orderReportJob]] launched with the following parameters: [{'runId_orderReportJob':'{value=1775700479812, type=class java.lang.Long, identifying=true}'}]
-2026-04-09 07:38:03 [scheduling-1] INFO  c.r.logging.BatchJobLoggerListener - BATCH_JOB_STARTED job=orderReportJob params={'runId_orderReportJob':'{value=1775700479812, type=class java.lang.Long, identifying=true}'}
-2026-04-09 07:38:03 [scheduling-1] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [orderReportStep]
-2026-04-09 07:38:03 [scheduling-1] INFO  c.r.logging.BatchStepLoggerListener - STEP_STARTED name=orderReportStep
